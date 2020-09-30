@@ -49,5 +49,7 @@ jobs:
         CIIOTBOT: ${{ secrets.CIIOTBOT }}
       run: |
         pwd
-        ls
-        sudo ./notify.sh $CIIOTBOT
+        ls -al
+        chmod +x ./notify.sh
+        ls -al
+        ./notify.sh $CIIOTBOT
