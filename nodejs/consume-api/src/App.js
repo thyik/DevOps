@@ -14,7 +14,7 @@ function App() {
             </header>
             <BrowserRouter>
                 <div>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">Login ...</Link>
                     <Switch>
                         <Route
                             path="/login"
