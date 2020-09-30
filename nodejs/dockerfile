@@ -1,0 +1,16 @@
+FROM node:12.4.0-alpine as dev
+
+RUN mkdir /work/
+WORKDIR /work/
+
+COPY ./consume-api/package.json /work/package.json
+RUN npm install
+
+COPY ./consume-api/ /work/
+
+
+###########START NEW IMAGE###################
+
+FROM dev as prod
+
+CMD npm start
