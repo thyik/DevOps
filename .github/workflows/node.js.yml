@@ -44,3 +44,8 @@ jobs:
       env:
         DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Telgram Notification Bot ...
+      env:
+        CIIOTBOT: ${{ secrets.CIIOTBOT }}
+      run: |
+        ./notify.sh $CIIOTBOT
