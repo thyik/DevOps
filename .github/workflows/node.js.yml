@@ -48,4 +48,6 @@ jobs:
       env:
         CIIOTBOT: ${{ secrets.CIIOTBOT }}
       run: |
-        ./notify.sh $CIIOTBOT
+        pwd
+        ls
+        sudo ./notify.sh $CIIOTBOT
