@@ -1,6 +1,6 @@
-# Demo to GitHub CI/CD
+# CI / CD pipeline using GitHub Action
 
-* `docker-compose`
-* `nodejs\dockerfile`
+This project demostrate the step needed to prepare CI / CD pipelinw with GitHub action
 
-* [Slides](./GitHub-CI.pdf)
+-   [Slides](./GitHub-CI.pdf)
+-   CI / CD pipelin [creation](./procedures.md)
