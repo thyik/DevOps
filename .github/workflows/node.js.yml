@@ -35,7 +35,7 @@ jobs:
         npm test
     - run: |
         docker-compose build
-        docker login -u $DOCKERHUB_USER -p #DOCKERHUB_PASSWORD
+        docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
         docker push smarttvminix/consume-api
       env:
         DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
