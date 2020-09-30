@@ -3,3 +3,4 @@
 * `docker-compose`
 * `nodejs\dockerfile`
 
+* [Slides](./GitHub-CI.pdf)

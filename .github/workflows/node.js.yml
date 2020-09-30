@@ -22,18 +22,22 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: |
+    - name: Installing node dependencies ...
+      run: |
         cd nodejs/consume-api
         npm ci
-    - run: |
+    - name: Build apps ...
+      run: |
         cd nodejs/consume-api
         npm run build --if-present
       env:
         CI: false
-    - run: |
+    - name: Test node apps ...
+      run: |
         cd nodejs/consume-api
         npm test
-    - run: |
+    - name: Create Docker Package ...
+      run: |
         docker-compose build
         docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
         docker push smarttvminix/consume-api
