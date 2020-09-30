@@ -1,16 +1,16 @@
 FROM node:12.4.0-alpine as dev
 
 RUN mkdir /work/
-WORKDIR /work/
+RUN mkdir /app/
+WORKDIR /app/
 
-COPY ./consume-api/package.json /work/package.json
+COPY ./consume-api/package.json /app/
+
 RUN npm install
 
-COPY ./consume-api/ /work/
+COPY ./consume-api/ /app/
 
 
-###########START NEW IMAGE###################
 
-FROM dev as prod
+CMD ["npm","start"]
 
-CMD npm start

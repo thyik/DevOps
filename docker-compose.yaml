@@ -1,17 +1,17 @@
 version: "3.4"
 services:
-  nodejs: #docker run -it -v ${PWD}:/work -w /work -p 5002:5000 smarttvminix/nodejs:1.0.0 /bin/sh
-    container_name: nodejs
-    image: smarttvminix/nodejs:1.0.0
+  consume-api: #docker run -it -v ${PWD}:/work -w /work -p 5002:5000 smarttvminix/consume-api:1.0.0 /bin/sh
+    container_name: consume-api
+    image: smarttvminix/consume-api:1.0.0
     build:
       context: ./nodejs
       #target: prod
     #working_dir: /work      #comment out for build.target:prod
     #entrypoint: /bin/sh     #comment out for build.target:prod
-    #stdin_open: true        #comment out for build.target:prod
+    stdin_open: true        #comment out for build.target:prod
     #tty: true               #comment out for build.target:prod
-    volumes:
-    - ./nodejs/consume-api/:/work
+    #volumes:
+    #- ./nodejs/consume-api/:/work
     ports:
-      - 5002:5000
+      - 3000:3000
 
