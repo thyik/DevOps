@@ -10,7 +10,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <p>Demo on Consuming Open Api</p>
+                <p>Demo on Consuming Open Api - CI / CD Integration</p>
             </header>
             <BrowserRouter>
                 <div>
