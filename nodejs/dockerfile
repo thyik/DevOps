@@ -1,17 +1,29 @@
-FROM node:12.4.0-alpine as dev
+FROM node:12.18.4-alpine as base
 
 RUN mkdir /work/
 RUN mkdir /app/
 RUN mkdir /app/build/
+
+## Development build
+FROM base as builder
+WORKDIR /work/
+
+COPY ./consume-api/package.json /work/
+
+RUN npm install
+
+COPY ./consume-api/ /work/
+
+RUN npm run-script build
+#CMD ["npm","start"]
+
+## Prod release
+FROM base as prod
 WORKDIR /app/
-
-COPY ./consume-api/package.json /app/
-
-#RUN npm install
 RUN npm i -g serve
 
-COPY ./consume-api/build/ /app/build/
+COPY --from=builder /work/build/ /app/build
+#COPY ./consume-api/build/ /app/build/
 
-#CMD ["npm","start"]
 CMD ["serve","-s","build"]
 
